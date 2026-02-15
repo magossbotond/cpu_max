@@ -1,26 +1,13 @@
 #include <iostream>
-#include <thread>
-#include <vector>
 
 using namespace std;
 
-    void cpu(){
-        double d = 0;
-        while(true){
-            d++;
+int main(){
+    while(true){
+        char* d = new char[100*1024*1024];
+        for(int i = 0; i <(100*1024*1024);i+=4096){
+            d[i]='x';
         }
-    }
-
-int main()
-{
-    int n = thread::hardware_concurrency();
-    vector<thread> szalak;
-    for(int i = 0; i < n ; i++){
-        szalak.emplace_back(cpu);
-    }
-    for(auto& szal: szalak){
-        szal.join();
     }
     return 0;
 }
-
